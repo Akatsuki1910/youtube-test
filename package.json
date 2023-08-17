@@ -1,0 +1,14 @@
+{
+  "name": "youtube-test",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "@types/youtube": "^0.0.47",
+    "parcel": "^2.9.3",
+    "prettier": "^3.0.2",
+    "typescript": "^5.1.6"
+  }
+}
