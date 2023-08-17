@@ -7,11 +7,11 @@ const init = () => {
     width: '640',
     videoId: movieId,
     playerVars: {
-      //各種パラメータ
       enablejsapi: 1,
       origin: origin,
       modestbranding: 1,
       fs: 0,
+      rel: 0,
     },
     events: {
       onReady: () => {
