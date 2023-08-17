@@ -1,4 +1,12 @@
 const init = () => {
+  const domReady = document.getElementById('ready');
+  const domState = document.getElementById('state');
+  const domQuality = document.getElementById('quality');
+  const domRate = document.getElementById('rate');
+
+  domReady.innerHTML = 'false';
+  domRate.innerHTML = '1';
+
   const origin = location.protocol + '//' + location.hostname + '/';
   const movieId = 'csrP6E9lUuY';
 
@@ -15,7 +23,19 @@ const init = () => {
     },
     events: {
       onReady: () => {
-        player.playVideo();
+        domReady.innerHTML = 'true';
+        // player.playVideo();
+      },
+      onStateChange: (event) => {
+        domState.innerHTML = ['UNSTARTED ', 'ENDED', 'PLAYING', 'PAUSED', 'BUFFERING', 'CUED'][
+          event.data + 1
+        ];
+      },
+      onPlaybackQualityChange: (event) => {
+        domQuality.innerHTML = event.data;
+      },
+      onPlaybackRateChange: (event) => {
+        domRate.innerHTML = event.data.toString();
       },
     },
   });
